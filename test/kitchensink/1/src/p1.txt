@@ -1,0 +1,5 @@
+"Spec"
+
+Make a program, in p1.cpp, that takes the first argument on the command line
+and prints that term in the Fibonacci sequence (where n_0 = 0 and n_1 = 1).
+If there are no arguments passed, read an integer in from stdin instead.
