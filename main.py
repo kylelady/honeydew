@@ -1,4 +1,4 @@
 #/usr/bin/env python
 
-import backends.filesystem
-import database
+import honeydew.backends.filesystem
+import honeydew.database
