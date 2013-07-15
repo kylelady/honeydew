@@ -5,7 +5,8 @@ from honeydew.database import Backend
 
 class Filesystem(Backend):
     '''Simple filesystem-based backend implementation'''
-    pass
+    def __init__(self, config):
+        self._config = config
 
     def get_grades(self, config, uniqname):
         return self.FSGrades(config, uniqname)
