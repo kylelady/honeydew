@@ -19,6 +19,6 @@ class ManagedConfig(object):
     def config(self):
         return self._config
 
-    @propert
+    @property
     def args(self):
         return self._args
