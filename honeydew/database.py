@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from honeydew.memoized import memoized
+
 
 class Database(object):
     '''
@@ -9,6 +11,10 @@ class Database(object):
         '''requires config and concrete implementation of Backend'''
         self._config = config
         self._db = backend
+
+    @memoized
+    def list_students(self, proj_num):
+        return self._db.list_students(proj_num)
 
     def grades(self, uniqname):
         return self._db.get_grades(self._config, uniqname)
