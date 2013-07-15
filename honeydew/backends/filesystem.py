@@ -23,7 +23,7 @@ class Filesystem(Backend):
         def __enter__(self):
             pass
 
-        def __exit__(self):
+        def __exit__(self, type, value, traceback):
             self.close()
 
         def _open(self, uniqname):
@@ -41,7 +41,7 @@ class Filesystem(Backend):
         def __enter__(self):
             pass
 
-        def __exit__(self):
+        def __exit__(self, type, value, traceback):
             self.close()
 
         def _open(self, uniqname):

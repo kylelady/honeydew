@@ -44,7 +44,7 @@ class Backend(object):
         def __enter__(self):
             raise NotImplementedError()
 
-        def __exit__(self):
+        def __exit__(self, type, value, traceback):
             '''call any cleanup needed, including close()'''
             raise NotImplementedError()
 
@@ -69,7 +69,7 @@ class Backend(object):
         def __enter__(self):
             raise NotImplementedError()
 
-        def __exit__(self):
+        def __exit__(self, type, value, traceback):
             '''call any cleanup needed, including close()'''
             raise NotImplementedError()
 
