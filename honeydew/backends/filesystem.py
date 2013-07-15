@@ -16,13 +16,13 @@ class Filesystem(honeydew.database.Backend):
     def get_submission(self, config, uniqname):
         return self.FSSubmission(config, uniqname)
 
-    def list_students(self):
-        '''returns a list of students
+    def list_students(self, proj_num):
+        '''returns a list of students for that proj_num
 
         this assumes that all the subdirs of the submission dir are students
         '''
         sub_dir = self._config.get('Filesystem', 'submissions_dir')
-        students_path = sub_dir.format(n=self._config.get('', 'proj_num'))
+        students_path = sub_dir.format(n=proj_num)
 
         students = []
 
