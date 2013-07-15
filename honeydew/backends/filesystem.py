@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-from honeydew.database import Backend
+import os
+
+import honeydew.database
 
 
-class Filesystem(Backend):
+class Filesystem(honeydew.database.Backend):
     '''Simple filesystem-based backend implementation'''
     def __init__(self, config):
         self._config = config
@@ -14,7 +16,25 @@ class Filesystem(Backend):
     def get_submission(self, config, uniqname):
         return self.FSSubmission(config, uniqname)
 
-    class FSGrades(Backend.Grades):
+    def list_students(self):
+        '''returns a list of students
+
+        this assumes that all the subdirs of the submission dir are students
+        '''
+        sub_dir = self._config.get('Filesystem', 'submissions_dir')
+        students_path = sub_dir.format(n=self._config.get('', 'proj_num'))
+
+        students = []
+
+        for file in os.listdir(students_path):
+            if os.path.isdir(file):
+                uniqname = os.path.basename(file.rstrip(os.sep))
+                students.append(uniqname)
+
+        return sorted(students)
+
+
+    class FSGrades(honeydew.database.Backend.Grades):
         def __init__(self, config, uniqname):
             self._config = config
             self._uniqname = uniqname
@@ -32,7 +52,7 @@ class Filesystem(Backend):
         def close(self):
             pass
 
-    class FSSubmission(Backend.Submission):
+    class FSSubmission(honeydew.database.Backend.Submission):
         def __init__(self, config, uniqname):
             self._config = config
             self._uniqname = uniqname

@@ -32,6 +32,9 @@ class Backend(object):
     def get_submission(self, config, uniqname):
         raise NotImplementedError()
 
+    def list_students(self):
+        raise NotImplementedError()
+
     class Grades(object):
         '''
         context-managed class for grades
