@@ -4,8 +4,6 @@ import argparse
 import os
 import sys
 
-import honeydew.backends.filesystem
-import honeydew.database
 import honeydew.main
 
 
