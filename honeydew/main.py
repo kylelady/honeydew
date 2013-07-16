@@ -13,3 +13,4 @@ def main(args):
     Minimum configuration:
     --pass--
     '''
+    pass
