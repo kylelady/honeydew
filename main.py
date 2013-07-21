@@ -10,7 +10,7 @@ import honeydew.main
 def main(argv):
     backends = honeydew.main.get_backends()
 
-    parser = arparse.ArgumentParser()
+    parser = argparse.ArgumentParser()
     parser.add_argument('--backend', choices=backends, default='filesystem',
             help='select backend engine; defaults to filesystem')
     parser.add_argument(['-c', '--config'], default='eecs280.cfg', type=open,
