@@ -12,8 +12,8 @@ def main(argv):
     backends = honeydew.main.get_backends()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--backend', '-b', choices=backends, default='filesystem',
-            help='select backend engine; defaults to filesystem')
+    parser.add_argument('--backend', '-b', choices=backends, default='Filesystem',
+            help='select backend engine; defaults to Filesystem')
     parser.add_argument('--config', '-c', default='eecs280.cfg', type=open,
             help='config file; see sample.cfg')
     parser.add_argument('n', metavar='N',
