@@ -27,8 +27,19 @@ def make_database(args, config):
     managed_cfg = honeydew.config_mgmt.ManagedConfig(config, args)
     return honeydew.database.Database(managed_cfg, args.backend)
 
-def get_students(args, config):
-    pass
+def get_students(args, config=None, db=None):
+    '''
+    get a list of students. requires args and either config or db
+
+    if both are passed, prefer db
+    '''
+    if db is None:
+        if config is not None:
+            db = make_database(args, config)
+        else:
+            raise RuntimeError('either config or db needed')
+
+    return db.list_students(args.n)
 
 def grade_all(args, config):
     pass
