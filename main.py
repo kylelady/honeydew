@@ -1,6 +1,7 @@
 #/usr/bin/env python
 
 import argparse
+import ConfigParser
 import os
 import sys
 
@@ -33,10 +34,10 @@ def main(argv):
     args = parser.parse_args(argv[1:])
 
     config = ConfigParser.SafeConfigParser()
-    with open(args.config) as f:
+    with args.config as f:
         config.readfp(f)
 
-    #args.func(args, config)
+    args.func(args, config)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
