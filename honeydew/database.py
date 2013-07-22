@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import honeydew.backends
+
 from honeydew.memoized import memoized
 
 
@@ -7,10 +9,11 @@ class Database(object):
     '''
     Frontend interface to read/write projects and grades
     '''
-    def __init__(self, config, backend):
-        '''requires config and concrete implementation of Backend'''
+    def __init__(self, config, backend_name):
+        '''requires config and name of concrete implementation of Backend'''
         self._config = config
-        self._db = backend
+        backend_class = getattr(honeydew.backends, backend_name)
+        self._db = backend_class(config)
 
     @memoized
     def list_students(self, proj_num):
