@@ -27,7 +27,7 @@ class Filesystem(honeydew.database.Backend):
         students = []
 
         for file in os.listdir(students_path):
-            if os.path.isdir(file):
+            if os.path.isdir(os.path.join(students_path, file)):
                 uniqname = os.path.basename(file.rstrip(os.sep))
                 students.append(uniqname)
 

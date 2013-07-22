@@ -24,7 +24,7 @@ def get_backends():
 
 def make_database(args, config):
     '''factory to read args/config and return a database implementation'''
-    managed_cfg = honeydew.config_mgmt.ManagedConfig(config, args)
+    managed_cfg = honeydew.config_mgmt.ManagedConfig(config, vars(args))
     return honeydew.database.Database(managed_cfg, args.backend)
 
 def get_students(args, config=None, db=None):
