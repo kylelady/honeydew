@@ -20,3 +20,12 @@ def get_backends():
     '''return a list of available backend implementations'''
     backend_path = os.path.dirname(honeydew.backends.__file__)
     return [name for _, name, _ in pkgutil.iter_modules([backend_path,])]
+
+def grade_all():
+    pass
+
+def grade_one():
+    pass
+
+def setup():
+    pass
