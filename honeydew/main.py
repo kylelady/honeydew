@@ -42,7 +42,9 @@ def get_students(args, config=None, db=None):
     return db.list_students(args.n)
 
 def grade_all(args, config):
-    pass
+    db = make_database(args, config)
+    students = get_students(args, config)
+    print students
 
 def grade_one(args, config, backend=None):
     pass
